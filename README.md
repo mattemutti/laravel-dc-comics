@@ -83,3 +83,8 @@ store()
 
 >Bonus:
 creare il seeder per la tabella comics utilizzando il file in allegato.
+
+
+
+# NB
+ricordarsi di modificare il dato del prezzo nel database come da indicazioni di Artur

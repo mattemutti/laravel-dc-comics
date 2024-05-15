@@ -12,7 +12,8 @@ class ComicsController extends Controller
      */
     public function index()
     {
-        //
+        //dd(Comics::all());
+        return view('comics.index', ['comics' => Comics::orderByDesc('id')->paginate(15)]);
     }
 
     /**
@@ -36,7 +37,8 @@ class ComicsController extends Controller
      */
     public function show(Comics $comics)
     {
-        //
+        dd('comics');
+        return view('comics.show', compact('comics'));
     }
 
     /**

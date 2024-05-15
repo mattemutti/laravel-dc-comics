@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\ComicsController;
 use App\Models\Comics;
 use Illuminate\Support\Facades\Route;
 
@@ -16,6 +17,10 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
 
-    dd(Comics::all());
+
     return view('welcome');
 });
+
+Route::get('/', [ComicsController::class, 'index'])->name('home');
+
+Route::resource('/comics', ComicsController::class);
