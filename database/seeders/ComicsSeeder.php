@@ -18,15 +18,13 @@ class ComicsSeeder extends Seeder
         foreach ($products as $product) {
             $comic = new Comics();
             $comic->title = $product['title'];
-            $comic->tumb = $product['tumb'];
+            $comic->thumb = $product['thumb'];
             $comic->description = $product['description'];
             $comic->price = $product['price'];
             $comic->series = $product['series'];
             $comic->sale_date = $product['sale_date'];
             $comic->type = $product['type'];
             $comic->save();
-
         }
-
     }
 }
