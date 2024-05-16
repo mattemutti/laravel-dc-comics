@@ -16,7 +16,7 @@ class ComicsSeeder extends Seeder
         $products = config('comics.comics');
 
         foreach ($products as $product) {
-            $comic = new Comics();
+            $comic = new Comics;
             $comic->title = $product['title'];
             $comic->thumb = $product['thumb'];
             $comic->description = $product['description'];

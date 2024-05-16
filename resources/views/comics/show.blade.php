@@ -3,18 +3,15 @@
 @section('content')
     <div class="container">
         <div class="row">
-            <div>Si vede?</div>
-            {{-- <div>{{ $comics['title'] }}</div> --}}
-            <div>{{ $comic->title }}</div>
-
-            {{-- <div class="col">
-                <img src="{{ $comics->thumb }}" alt="">
+            <div class="col">
+                <div>{{ $comic->title }}</div>
+                <img src="{{ $comic->thumb }}" alt="">
             </div>
             <div class="col">
-                <h1> {{ $comics->id }}</h1>
-                <h2>{{ $comics->title }}</h2>
-                <p>{{ $comics->description }}</p>
-            </div> --}}
+                <h1> {{ $comic->id }}</h1>
+                <h2>{{ $comic->title }}</h2>
+                <p>{{ $comic->description }}</p>
+            </div>
         </div>
     </div>
 @endsection
