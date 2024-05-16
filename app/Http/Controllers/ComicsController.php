@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Comics;
 use Illuminate\Http\Request;
+use PhpParser\Node\Expr\New_;
 
 class ComicsController extends Controller
 {
@@ -29,7 +30,28 @@ class ComicsController extends Controller
      */
     public function store(Request $request)
     {
-        dd($request->all());
+        //dd($request->all());
+        $data = $request->all();
+        //validare i dati
+
+
+        // creiamo l'istanza 
+        //opzione 1 - assegno ogni campo che recupero dall'array del form
+        $comic = new Comics();
+        $comic->title = $data['title'];
+        $comic->thumb = $data['thumb'];
+        $comic->description = $data['description'];
+        $comic->price = $data['price'];
+        $comic->series = $data['series'];
+        $comic->sale_date = $data['sale_date'];
+        $comic->type = $data['type'];
+        $comic->save();
+
+
+        // pattern post->redirect->GET    PER NON CONSENTIRE ALL'UTENTE DI REINVIARE IL FORM PIù VOLTE!
+        return to_route('comics.index');
+
+
     }
 
     /**
