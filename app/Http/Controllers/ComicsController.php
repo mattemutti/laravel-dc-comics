@@ -21,7 +21,7 @@ class ComicsController extends Controller
      */
     public function create()
     {
-        //
+        return view('comics.create');
     }
 
     /**
@@ -29,7 +29,7 @@ class ComicsController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        dd($request->all());
     }
 
     /**
@@ -37,7 +37,7 @@ class ComicsController extends Controller
      */
     public function show(Comics $comics)
     {
-        dd('comics');
+        //dd('comics');
         return view('comics.show', compact('comics'));
     }
 
