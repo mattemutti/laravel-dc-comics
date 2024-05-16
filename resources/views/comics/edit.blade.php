@@ -13,11 +13,14 @@
                 <small id="helpId" class="form-text text-muted">Type a title for the comic</small>
             </div>
 
-            <div class="mb-3">
-                <label for="thumb" class="form-label">Image</label>
-                <input type="text" class="form-control" name="thumb" id="thumb" aria-describedby="thumbHelper"
-                    placeholder="https//www." value="{{ $comic->thumb }}" />
-                <small id="helpId" class="form-text text-muted">Type a image for the comic</small>
+            <div class="d-flex gap-2">
+                <img height="100" src="{{ $comic->thumb }}" alt="">
+                <div class="mb-3">
+                    <label for="thumb" class="form-label">Image</label>
+                    <input type="text" class="form-control" name="thumb" id="thumb" aria-describedby="thumbHelper"
+                        placeholder="https//www." value="{{ $comic->thumb }}" />
+                    <small id="helpId" class="form-text text-muted">Type a image for the comic</small>
+                </div>
             </div>
 
             <div class="mb-3">
@@ -50,11 +53,11 @@
 
             <div class="mb-3">
                 <label for="description" class="form-label">Description</label>
-                <textarea class="form-control" name="description" id="description" rows="6">value="{{ $comic->description }}"</textarea>
+                <textarea class="form-control" name="description" id="description" rows="6">{{ $comic->description }}"</textarea>
             </div>
 
             <button type="submit" class="btn btn-primary">
-                Create
+                Update
             </button>
 
         </form>
