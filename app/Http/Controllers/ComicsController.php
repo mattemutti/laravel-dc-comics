@@ -35,7 +35,7 @@ class ComicsController extends Controller
         //$data = $request->all();
         //validare i dati
         $val_data = $request->validate([
-            'title' => 'require|min:2|max:255',
+            'title' => 'required|min:2|max:255',
             'thumb' => 'nullable|max:255',
             'description' => 'nullable|max:500',
             'price' => 'require|max:10',
@@ -43,6 +43,8 @@ class ComicsController extends Controller
             'sale_date' => 'nullable|max:15',
             'type' => 'nullable|max:15',
         ]);
+
+
 
         dd($val_data);
 
