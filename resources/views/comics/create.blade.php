@@ -2,6 +2,10 @@
 
 @section('content')
     <div class="container">
+        <h1>New Comic</h1>
+        @include('partials.validation-errors')
+
+
         <form action="{{ route('comics.store') }}" method="post">
             @csrf
             <div class="mb-3">

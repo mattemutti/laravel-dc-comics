@@ -32,9 +32,19 @@ class ComicsController extends Controller
     public function store(Request $request)
     {
         //dd($request->all());
-        $data = $request->all();
+        //$data = $request->all();
         //validare i dati
+        $val_data = $request->validate([
+            'title' => 'require|min:2|max:255',
+            'thumb' => 'nullable|max:255',
+            'description' => 'nullable|max:500',
+            'price' => 'require|max:10',
+            'series' => 'nullable|max:255',
+            'sale_date' => 'nullable|max:15',
+            'type' => 'nullable|max:15',
+        ]);
 
+        dd($val_data);
 
         // creiamo l'istanza 
         //opzione 1 - assegno ogni campo che recupero dall'array del form
@@ -49,7 +59,7 @@ class ComicsController extends Controller
         // $comic->save();
 
         //Opzione 2
-        Comic::create($data);
+        //Comic::create($data);
 
 
         // pattern post->redirect->GET    PER NON CONSENTIRE ALL'UTENTE DI REINVIARE IL FORM PIù VOLTE!
