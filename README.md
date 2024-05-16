@@ -88,3 +88,15 @@ creare il seeder per la tabella comics utilizzando il file in allegato.
 
 # NB
 ricordarsi di modificare il dato del prezzo nel database come da indicazioni di Artur
+
+
+
+
+
+# Oggi lavorate sulla stessa repo di ieri e completate le operazioni CRUD.
+
+>Bonus 1:
+Quando l'utente clicca sul pulsante "delete", chiedere conferma della cancellazione, prima di eliminare l'elemento.
+
+>Bonus 2:
+Implementate le regole di validazione come visto in classe sia per store che update e nei form mostrate gli errori di validazione.

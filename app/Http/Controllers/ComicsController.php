@@ -38,18 +38,18 @@ class ComicsController extends Controller
 
         // creiamo l'istanza 
         //opzione 1 - assegno ogni campo che recupero dall'array del form
-        $comic = new Comic();
-        $comic->title = $data['title'];
-        $comic->thumb = $data['thumb'];
-        $comic->description = $data['description'];
-        $comic->price = $data['price'];
-        $comic->series = $data['series'];
-        $comic->sale_date = $data['sale_date'];
-        $comic->type = $data['type'];
-        $comic->save();
+        // $comic = new Comic();
+        // $comic->title = $data['title'];
+        // $comic->thumb = $data['thumb'];
+        // $comic->description = $data['description'];
+        // $comic->price = $data['price'];
+        // $comic->series = $data['series'];
+        // $comic->sale_date = $data['sale_date'];
+        // $comic->type = $data['type'];
+        // $comic->save();
 
         //Opzione 2
-        //Post::create($data);
+        Comic::create($data);
 
 
         // pattern post->redirect->GET    PER NON CONSENTIRE ALL'UTENTE DI REINVIARE IL FORM PIù VOLTE!
@@ -72,7 +72,7 @@ class ComicsController extends Controller
      */
     public function edit(Comic $comic)
     {
-        //
+        return view('comics.edit', compact('comic'));
     }
 
     /**
@@ -88,6 +88,8 @@ class ComicsController extends Controller
      */
     public function destroy(Comic $comic)
     {
-        //
+        $comic->delete();
+
+        return to_route('pasta.index');
     }
 }
