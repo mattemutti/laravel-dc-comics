@@ -2,9 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Comics;
+use App\Models\Comic;
 use Illuminate\Http\Request;
 use PhpParser\Node\Expr\New_;
+use PHPUnit\Framework\Attributes\PostCondition;
 
 class ComicsController extends Controller
 {
@@ -14,7 +15,7 @@ class ComicsController extends Controller
     public function index()
     {
         //dd(Comics::all());
-        return view('comics.index', ['comics' => Comics::orderByDesc('id')->paginate(15)]);
+        return view('comics.index', ['comics' => Comic::orderByDesc('id')->paginate(15)]);
     }
 
     /**
@@ -37,7 +38,7 @@ class ComicsController extends Controller
 
         // creiamo l'istanza 
         //opzione 1 - assegno ogni campo che recupero dall'array del form
-        $comic = new Comics();
+        $comic = new Comic();
         $comic->title = $data['title'];
         $comic->thumb = $data['thumb'];
         $comic->description = $data['description'];
@@ -46,6 +47,9 @@ class ComicsController extends Controller
         $comic->sale_date = $data['sale_date'];
         $comic->type = $data['type'];
         $comic->save();
+
+        //Opzione 2
+        //Post::create($data);
 
 
         // pattern post->redirect->GET    PER NON CONSENTIRE ALL'UTENTE DI REINVIARE IL FORM PIù VOLTE!
@@ -57,16 +61,16 @@ class ComicsController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Comics $comics)
+    public function show(Comic $comic)
     {
         //dd('comics');
-        return view('comics.show', compact('comics'));
+        return view('comics.show', compact('comic'));
     }
 
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Comics $comics)
+    public function edit(Comic $comic)
     {
         //
     }
@@ -74,7 +78,7 @@ class ComicsController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Comics $comics)
+    public function update(Request $request, Comic $comic)
     {
         //
     }
@@ -82,7 +86,7 @@ class ComicsController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Comics $comics)
+    public function destroy(Comic $comic)
     {
         //
     }

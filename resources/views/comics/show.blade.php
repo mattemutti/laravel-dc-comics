@@ -3,9 +3,9 @@
 @section('content')
     <div class="container">
         <div class="row">
-            <div>Prova</div>
+            <div>Si vede?</div>
             {{-- <div>{{ $comics['title'] }}</div> --}}
-            <div>{{ $comics->title }}</div>
+            <div>{{ $comic->title }}</div>
 
             {{-- <div class="col">
                 <img src="{{ $comics->thumb }}" alt="">
