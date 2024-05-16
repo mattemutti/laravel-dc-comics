@@ -46,7 +46,7 @@ class ComicsController extends Controller
 
 
 
-        dd($val_data);
+        //dd($val_data);
 
         // creiamo l'istanza 
         //opzione 1 - assegno ogni campo che recupero dall'array del form
@@ -61,7 +61,7 @@ class ComicsController extends Controller
         // $comic->save();
 
         //Opzione 2
-        //Comic::create($data);
+        Comic::create($val_data);
 
 
         // pattern post->redirect->GET    PER NON CONSENTIRE ALL'UTENTE DI REINVIARE IL FORM PIù VOLTE!
