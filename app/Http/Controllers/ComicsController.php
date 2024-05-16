@@ -93,6 +93,6 @@ class ComicsController extends Controller
     {
         $comic->delete();
 
-        return to_route('pasta.index');
+        return to_route('comics.index');
     }
 }
