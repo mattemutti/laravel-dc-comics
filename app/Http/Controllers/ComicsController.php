@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\StoreComicRequest;
 use App\Models\Comic;
 use Illuminate\Http\Request;
 use PhpParser\Node\Expr\New_;
@@ -29,38 +30,18 @@ class ComicsController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(StoreComicRequest $request)
     {
         //dd($request->all());
         //$data = $request->all();
         //validare i dati
-        $val_data = $request->validate([
-            'title' => 'required|min:2|max:255',
-            'thumb' => 'nullable|max:255',
-            'description' => 'nullable|max:500',
-            'price' => 'required|max:10',
-            'series' => 'nullable|max:255',
-            'sale_date' => 'nullable|max:15',
-            'type' => 'nullable|max:15',
-        ]);
+        $val_data = $request->validated();
 
 
 
         //dd($val_data);
 
-        // creiamo l'istanza 
-        //opzione 1 - assegno ogni campo che recupero dall'array del form
-        // $comic = new Comic();
-        // $comic->title = $data['title'];
-        // $comic->thumb = $data['thumb'];
-        // $comic->description = $data['description'];
-        // $comic->price = $data['price'];
-        // $comic->series = $data['series'];
-        // $comic->sale_date = $data['sale_date'];
-        // $comic->type = $data['type'];
-        // $comic->save();
 
-        //Opzione 2
         Comic::create($val_data);
 
 
